@@ -442,6 +442,11 @@ background: #fff;
 background: linear-gradient(9deg, rgb(0 15 54) 0%, rgb(0 173 239) 100%);
 }
 
+.mbbank > .card {
+    background: #fff;
+    background: linear-gradient(347deg, rgb(11 33 116) 0%, rgb(100 145 233) 100% 100%);
+}
+
 .bank h5 {
     color: #fff;
 }
