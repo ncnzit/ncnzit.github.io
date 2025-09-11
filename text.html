@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text Transformer Pro - Chuyển đổi văn bản & So sánh & Code Editor</title>
+    <title>NguyeZ - Text Edit</title>
     
     <!-- Prism.js for syntax highlighting -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
@@ -522,7 +522,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🔤 Text Transformer Pro</h1>
+            <h1>🔤 NguyeZ - Text Edit</h1>
             <p>Chuyển đổi văn bản • So sánh • Code Editor • Và nhiều tính năng khác</p>
         </div>
 
@@ -811,6 +811,150 @@
                 <button class="btn" onclick="base64Decode()">🔓 Base64 Decode</button>
                 <button class="btn" onclick="urlEncode()">🌐 URL Encode</button>
                 <button class="btn" onclick="urlDecode()">🌐 URL Decode</button>
+                <button class="btn" onclick="htmlEncode()">🔤 HTML Encode</button>
+                <button class="btn" onclick="htmlDecode()">🔤 HTML Decode</button>
+                <button class="btn" onclick="generatePassword()">🔑 Generate Password</button>
+                <button class="btn" onclick="generateQR()">📱 Generate QR Code</button>
+            </div>
+
+            <div class="bbcode-section" style="margin-top: 30px;">
+                <h3>📝 BBCode Generator</h3>
+                <p>Tạo BBCode cho forum, blog và các trang web hỗ trợ</p>
+                
+                <div class="controls" style="margin-bottom: 20px;">
+                    <button class="btn primary" onclick="generateBBCode('bold')">**Bold**</button>
+                    <button class="btn primary" onclick="generateBBCode('italic')">*Italic*</button>
+                    <button class="btn primary" onclick="generateBBCode('underline')">__Underline__</button>
+                    <button class="btn primary" onclick="generateBBCode('strikethrough')">~~Strike~~</button>
+                    <button class="btn warning" onclick="generateBBCode('color')">🎨 Color</button>
+                    <button class="btn warning" onclick="generateBBCode('size')">📏 Size</button>
+                    <button class="btn warning" onclick="generateBBCode('font')">🔤 Font</button>
+                    <button class="btn success" onclick="generateBBCode('url')">🔗 Link</button>
+                    <button class="btn success" onclick="generateBBCode('img')">🖼️ Image</button>
+                    <button class="btn success" onclick="generateBBCode('quote')">💬 Quote</button>
+                    <button class="btn" onclick="generateBBCode('code')">💻 Code</button>
+                    <button class="btn" onclick="generateBBCode('list')">📋 List</button>
+                    <button class="btn copy-btn" onclick="copyBBCode()">📋 Copy BBCode</button>
+                </div>
+
+                <div class="text-areas">
+                    <div class="text-group">
+                        <label for="bbcodeInput">📝 Input Text:</label>
+                        <textarea 
+                            id="bbcodeInput" 
+                            placeholder="Nhập văn bản để tạo BBCode...&#10;&#10;Ví dụ: Hello World!"
+                            style="height: 150px;"
+                            oninput="previewBBCode()"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="text-group">
+                        <label for="bbcodeOutput">✨ BBCode Output:</label>
+                        <textarea 
+                            id="bbcodeOutput" 
+                            placeholder="BBCode sẽ hiển thị ở đây..."
+                            style="height: 150px;"
+                            readonly
+                        ></textarea>
+                    </div>
+                </div>
+
+                <div class="bbcode-preview" style="margin-top: 20px;">
+                    <h4>👁️ Preview (HTML):</h4>
+                    <div id="bbcodePreview" style="border: 2px solid #e1e5e9; border-radius: 8px; padding: 20px; background: #f8f9fa; min-height: 100px;">
+                        BBCode preview sẽ hiển thị ở đây...
+                    </div>
+                </div>
+            </div>
+
+            <div class="markdown-section" style="margin-top: 30px;">
+                <h3>📄 Markdown Generator & Preview</h3>
+                <p>Tạo và preview Markdown cho GitHub, documentation</p>
+                
+                <div class="controls" style="margin-bottom: 20px;">
+                    <button class="btn primary" onclick="generateMarkdown('h1')">H1</button>
+                    <button class="btn primary" onclick="generateMarkdown('h2')">H2</button>
+                    <button class="btn primary" onclick="generateMarkdown('h3')">H3</button>
+                    <button class="btn primary" onclick="generateMarkdown('bold')">**Bold**</button>
+                    <button class="btn primary" onclick="generateMarkdown('italic')">*Italic*</button>
+                    <button class="btn warning" onclick="generateMarkdown('link')">🔗 Link</button>
+                    <button class="btn warning" onclick="generateMarkdown('image')">🖼️ Image</button>
+                    <button class="btn success" onclick="generateMarkdown('code')">💻 Code</button>
+                    <button class="btn success" onclick="generateMarkdown('codeblock')">📄 Code Block</button>
+                    <button class="btn" onclick="generateMarkdown('list')">📋 List</button>
+                    <button class="btn" onclick="generateMarkdown('table')">📊 Table</button>
+                    <button class="btn copy-btn" onclick="copyMarkdown()">📋 Copy Markdown</button>
+                </div>
+
+                <div class="text-areas">
+                    <div class="text-group">
+                        <label for="markdownInput">📝 Markdown Input:</label>
+                        <textarea 
+                            id="markdownInput" 
+                            placeholder="# Hello World&#10;&#10;This is **bold** and *italic* text.&#10;&#10;- List item 1&#10;- List item 2"
+                            style="height: 200px;"
+                            oninput="previewMarkdown()"
+                        ></textarea>
+                    </div>
+                    
+                    <div class="text-group">
+                        <label for="markdownPreview">👁️ HTML Preview:</label>
+                        <div id="markdownPreview" style="height: 200px; overflow-y: auto; border: 2px solid #e1e5e9; border-radius: 8px; padding: 20px; background: white;">
+                            Markdown preview sẽ hiển thị ở đây...
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="generators-section" style="margin-top: 30px;">
+                <h3>🎲 Generators & Utilities</h3>
+                
+                <div class="generator-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <!-- Password Generator -->
+                    <div class="generator-card" style="border: 2px solid #e1e5e9; border-radius: 12px; padding: 20px; background: #f8f9fa;">
+                        <h4>🔑 Password Generator</h4>
+                        <div style="margin: 15px 0;">
+                            <label>
+                                <input type="checkbox" id="includeUppercase" checked> Uppercase (A-Z)
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="includeLowercase" checked> Lowercase (a-z)
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="includeNumbers" checked> Numbers (0-9)
+                            </label><br>
+                            <label>
+                                <input type="checkbox" id="includeSymbols"> Symbols (!@#$...)
+                            </label><br>
+                            <label>
+                                Length: <input type="number" id="passwordLength" value="12" min="4" max="128" style="width: 60px;">
+                            </label>
+                        </div>
+                        <button class="btn primary" onclick="generateRandomPassword()">Generate Password</button>
+                        <button class="btn copy-btn" onclick="copyPassword()">📋 Copy</button>
+                        <div id="generatedPassword" style="margin-top: 10px; padding: 10px; background: white; border-radius: 6px; font-family: monospace; word-break: break-all; min-height: 20px;"></div>
+                    </div>
+
+                    <!-- QR Code Generator -->
+                    <div class="generator-card" style="border: 2px solid #e1e5e9; border-radius: 12px; padding: 20px; background: #f8f9fa;">
+                        <h4>📱 QR Code Generator</h4>
+                        <div style="margin: 15px 0;">
+                            <input type="text" id="qrText" placeholder="Nhập text/URL để tạo QR code..." style="width: 100%; padding: 8px; margin-bottom: 10px;">
+                            <label>
+                                Size: 
+                                <select id="qrSize" style="margin-left: 5px;">
+                                    <option value="150">150x150</option>
+                                    <option value="200" selected>200x200</option>
+                                    <option value="300">300x300</option>
+                                    <option value="400">400x400</option>
+                                </select>
+                            </label>
+                        </div>
+                        <button class="btn primary" onclick="generateQRCode()">Generate QR</button>
+                        <button class="btn" onclick="downloadQR()">💾 Download</button>
+                        <div id="qrResult" style="margin-top: 15px; text-align: center; min-height: 50px;"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -1551,6 +1695,304 @@ print(message)`,
             const highlighted = targetText.replace(regex, '**$&**');
             document.getElementById('toolsOutput').value = highlighted;
             showNotification('🎯 Đã highlight các kết quả tìm kiếm!');
+        }
+
+        // HTML encoding/decoding
+        function htmlEncode() {
+            const text = document.getElementById('toolsInput').value;
+            const encoded = text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+            document.getElementById('toolsOutput').value = encoded;
+            showNotification('🔤 Đã encode HTML entities!');
+        }
+
+        function htmlDecode() {
+            const text = document.getElementById('toolsInput').value;
+            const decoded = text
+                .replace(/&amp;/g, '&')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&quot;/g, '"')
+                .replace(/&#39;/g, "'");
+            document.getElementById('toolsOutput').value = decoded;
+            showNotification('🔤 Đã decode HTML entities!');
+        }
+
+        // BBCode functionality
+        function generateBBCode(type) {
+            const input = document.getElementById('bbcodeInput').value;
+            const selectedText = getSelectedText('bbcodeInput') || input || 'Sample text';
+            let bbcode = '';
+
+            switch (type) {
+                case 'bold':
+                    bbcode = `[b]${selectedText}[/b]`;
+                    break;
+                case 'italic':
+                    bbcode = `[i]${selectedText}[/i]`;
+                    break;
+                case 'underline':
+                    bbcode = `[u]${selectedText}[/u]`;
+                    break;
+                case 'strikethrough':
+                    bbcode = `[s]${selectedText}[/s]`;
+                    break;
+                case 'color':
+                    const color = prompt('Nhập màu (ví dụ: red, #FF0000):', 'red');
+                    bbcode = color ? `[color=${color}]${selectedText}[/color]` : selectedText;
+                    break;
+                case 'size':
+                    const size = prompt('Nhập kích thước (8-36):', '14');
+                    bbcode = size ? `[size=${size}]${selectedText}[/size]` : selectedText;
+                    break;
+                case 'font':
+                    const font = prompt('Nhập font (ví dụ: Arial, Times):', 'Arial');
+                    bbcode = font ? `[font=${font}]${selectedText}[/font]` : selectedText;
+                    break;
+                case 'url':
+                    const url = prompt('Nhập URL:', 'https://example.com');
+                    bbcode = url ? `[url=${url}]${selectedText}[/url]` : selectedText;
+                    break;
+                case 'img':
+                    const imgUrl = prompt('Nhập URL hình ảnh:', 'https://example.com/image.jpg');
+                    bbcode = imgUrl ? `[img]${imgUrl}[/img]` : '[img]URL_IMAGE[/img]';
+                    break;
+                case 'quote':
+                    const author = prompt('Tác giả (tùy chọn):', '');
+                    bbcode = author ? `[quote=${author}]${selectedText}[/quote]` : `[quote]${selectedText}[/quote]`;
+                    break;
+                case 'code':
+                    bbcode = `[code]${selectedText}[/code]`;
+                    break;
+                case 'list':
+                    const items = selectedText.split('\n').filter(line => line.trim());
+                    bbcode = '[list]\n' + items.map(item => `[*]${item.trim()}`).join('\n') + '\n[/list]';
+                    break;
+            }
+
+            document.getElementById('bbcodeOutput').value = bbcode;
+            previewBBCode();
+            showNotification(`📝 Đã tạo BBCode: ${type}!`);
+        }
+
+        function previewBBCode() {
+            const bbcode = document.getElementById('bbcodeOutput').value;
+            let html = bbcode;
+
+            // Convert BBCode to HTML
+            html = html
+                .replace(/\[b\](.*?)\[\/b\]/gi, '<strong>$1</strong>')
+                .replace(/\[i\](.*?)\[\/i\]/gi, '<em>$1</em>')
+                .replace(/\[u\](.*?)\[\/u\]/gi, '<u>$1</u>')
+                .replace(/\[s\](.*?)\[\/s\]/gi, '<del>$1</del>')
+                .replace(/\[color=([^\]]+)\](.*?)\[\/color\]/gi, '<span style="color: $1;">$2</span>')
+                .replace(/\[size=([^\]]+)\](.*?)\[\/size\]/gi, '<span style="font-size: $1px;">$2</span>')
+                .replace(/\[font=([^\]]+)\](.*?)\[\/font\]/gi, '<span style="font-family: $1;">$2</span>')
+                .replace(/\[url=([^\]]+)\](.*?)\[\/url\]/gi, '<a href="$1" target="_blank">$2</a>')
+                .replace(/\[url\](.*?)\[\/url\]/gi, '<a href="$1" target="_blank">$1</a>')
+                .replace(/\[img\](.*?)\[\/img\]/gi, '<img src="$1" alt="Image" style="max-width: 100%; height: auto;">')
+                .replace(/\[quote=([^\]]+)\](.*?)\[\/quote\]/gi, '<blockquote><cite>$1 wrote:</cite><br>$2</blockquote>')
+                .replace(/\[quote\](.*?)\[\/quote\]/gi, '<blockquote>$2</blockquote>')
+                .replace(/\[code\](.*?)\[\/code\]/gi, '<pre><code>$1</code></pre>')
+                .replace(/\[list\](.*?)\[\/list\]/gi, '<ul>$1</ul>')
+                .replace(/\[\*\](.*?)(?=\[\*\]|\[\/list\]|$)/gi, '<li>$1</li>')
+                .replace(/\n/g, '<br>');
+
+            document.getElementById('bbcodePreview').innerHTML = html || 'BBCode preview sẽ hiển thị ở đây...';
+        }
+
+        function copyBBCode() {
+            const bbcode = document.getElementById('bbcodeOutput').value;
+            navigator.clipboard.writeText(bbcode).then(() => {
+                showNotification('📋 Đã copy BBCode vào clipboard!');
+            });
+        }
+
+        // Markdown functionality
+        function generateMarkdown(type) {
+            const input = document.getElementById('markdownInput').value;
+            const selectedText = getSelectedText('markdownInput') || 'Sample text';
+            let markdown = '';
+
+            switch (type) {
+                case 'h1':
+                    markdown = `# ${selectedText}`;
+                    break;
+                case 'h2':
+                    markdown = `## ${selectedText}`;
+                    break;
+                case 'h3':
+                    markdown = `### ${selectedText}`;
+                    break;
+                case 'bold':
+                    markdown = `**${selectedText}**`;
+                    break;
+                case 'italic':
+                    markdown = `*${selectedText}*`;
+                    break;
+                case 'link':
+                    const url = prompt('Nhập URL:', 'https://example.com');
+                    markdown = url ? `[${selectedText}](${url})` : selectedText;
+                    break;
+                case 'image':
+                    const imgUrl = prompt('Nhập URL hình ảnh:', 'https://example.com/image.jpg');
+                    const alt = prompt('Alt text:', selectedText);
+                    markdown = imgUrl ? `![${alt}](${imgUrl})` : selectedText;
+                    break;
+                case 'code':
+                    markdown = `\`${selectedText}\``;
+                    break;
+                case 'codeblock':
+                    const lang = prompt('Ngôn ngữ (tùy chọn):', 'javascript');
+                    markdown = `\`\`\`${lang}\n${selectedText}\n\`\`\``;
+                    break;
+                case 'list':
+                    const items = selectedText.split('\n').filter(line => line.trim());
+                    markdown = items.map(item => `- ${item.trim()}`).join('\n');
+                    break;
+                case 'table':
+                    markdown = `| Header 1 | Header 2 | Header 3 |\n|----------|----------|----------|\n| Cell 1   | Cell 2   | Cell 3   |\n| Cell 4   | Cell 5   | Cell 6   |`;
+                    break;
+            }
+
+            const currentInput = document.getElementById('markdownInput');
+            if (currentInput.selectionStart !== currentInput.selectionEnd) {
+                // Replace selected text
+                const start = currentInput.selectionStart;
+                const end = currentInput.selectionEnd;
+                const value = currentInput.value;
+                currentInput.value = value.substring(0, start) + markdown + value.substring(end);
+            } else {
+                // Append to current content
+                currentInput.value += (currentInput.value ? '\n' : '') + markdown;
+            }
+
+            previewMarkdown();
+            showNotification(`📄 Đã thêm Markdown: ${type}!`);
+        }
+
+        function previewMarkdown() {
+            const markdown = document.getElementById('markdownInput').value;
+            let html = markdown;
+
+            // Simple Markdown to HTML conversion
+            html = html
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 100%; height: auto;">')
+                .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+                .replace(/`([^`]+)`/g, '<code>$1</code>')
+                .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+                .replace(/^- (.*$)/gim, '<li>$1</li>')
+                .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+                .replace(/^\| (.*) \|$/gim, '<tr><td>$1</td></tr>')
+                .replace(/(<tr>.*<\/tr>)/s, '<table border="1">$1</table>')
+                .replace(/\n/g, '<br>');
+
+            document.getElementById('markdownPreview').innerHTML = html || 'Markdown preview sẽ hiển thị ở đây...';
+        }
+
+        function copyMarkdown() {
+            const markdown = document.getElementById('markdownInput').value;
+            navigator.clipboard.writeText(markdown).then(() => {
+                showNotification('📋 Đã copy Markdown vào clipboard!');
+            });
+        }
+
+        // Password Generator
+        function generateRandomPassword() {
+            const length = parseInt(document.getElementById('passwordLength').value);
+            const includeUppercase = document.getElementById('includeUppercase').checked;
+            const includeLowercase = document.getElementById('includeLowercase').checked;
+            const includeNumbers = document.getElementById('includeNumbers').checked;
+            const includeSymbols = document.getElementById('includeSymbols').checked;
+
+            let charset = '';
+            if (includeUppercase) charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            if (includeLowercase) charset += 'abcdefghijklmnopqrstuvwxyz';
+            if (includeNumbers) charset += '0123456789';
+            if (includeSymbols) charset += '!@#$%^&*()_+-=[]{}|;:,.<>?';
+
+            if (!charset) {
+                showNotification('⚠️ Vui lòng chọn ít nhất một loại ký tự!');
+                return;
+            }
+
+            let password = '';
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+
+            document.getElementById('generatedPassword').textContent = password;
+            showNotification(`🔑 Đã tạo password ${length} ký tự!`);
+        }
+
+        function copyPassword() {
+            const password = document.getElementById('generatedPassword').textContent;
+            if (password) {
+                navigator.clipboard.writeText(password).then(() => {
+                    showNotification('📋 Đã copy password vào clipboard!');
+                });
+            } else {
+                showNotification('⚠️ Chưa có password để copy!');
+            }
+        }
+
+        // QR Code Generator (using QR Server API)
+        function generateQRCode() {
+            const text = document.getElementById('qrText').value;
+            const size = document.getElementById('qrSize').value;
+
+            if (!text.trim()) {
+                showNotification('⚠️ Vui lòng nhập text để tạo QR code!');
+                return;
+            }
+
+            const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(text)}`;
+            
+            document.getElementById('qrResult').innerHTML = `
+                <img src="${qrUrl}" alt="QR Code" style="border: 2px solid #ddd; border-radius: 8px;">
+                <p style="margin-top: 10px; font-size: 12px; color: #666;">QR Code cho: ${text.substring(0, 50)}${text.length > 50 ? '...' : ''}</p>
+            `;
+
+            showNotification('📱 Đã tạo QR Code thành công!');
+        }
+
+        function downloadQR() {
+            const img = document.querySelector('#qrResult img');
+            if (img) {
+                const link = document.createElement('a');
+                link.href = img.src;
+                link.download = 'qrcode.png';
+                link.click();
+                showNotification('💾 Đã tải xuống QR Code!');
+            } else {
+                showNotification('⚠️ Chưa có QR Code để tải xuống!');
+            }
+        }
+
+        // Helper function to get selected text
+        function getSelectedText(textareaId) {
+            const textarea = document.getElementById(textareaId);
+            const start = textarea.selectionStart;
+            const end = textarea.selectionEnd;
+            return textarea.value.substring(start, end);
+        }
+
+        // Quick functions for backwards compatibility
+        function generatePassword() {
+            generateRandomPassword();
+        }
+
+        function generateQR() {
+            generateQRCode();
         }
     </script>
 
