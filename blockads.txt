@@ -1484,4 +1484,4 @@ minotruyenff.xyz##main:nth-child(30) > main.block > div.min-h-screen > div.pt-10
 minotruyenff.xyz##main:nth-child(30) > main.block > div.min-h-screen > div.pt-10:last-child > div > div.mx-auto.max-w-\[800px\].px-3:nth-child(3)
 minotruyenff.xyz##main:nth-child(30) > main.block > div.min-h-screen > div.pt-10:last-child > div > div.w-\[300px\].h-\[500px\].mx-auto.my-2:nth-child(2)
 minotruyenff.xyz##main:nth-child(30) > main.block > div.min-h-screen > div.pt-10:last-child > div > div.w-\[300px\].h-\[500px\].mx-auto.my-2:nth-child(2)
-
+minotruyenzz.xyz##div.w-\[300px\].h-\[500px\].mx-auto.my-2
