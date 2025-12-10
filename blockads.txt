@@ -1,3 +1,11 @@
+
+
+! Dec 10, 2025 https://minotruyenhh.xyz
+minotruyenhh.xyz##.md\:rounded-md.slate-900.shadow-none.mx-auto.md\:max-w-screen-md.lg\:max-w-screen-lg.xl\:max-w-screen-8xl > .justify-center.items-center.flex
+minotruyenhh.xyz##.mb-3.gap-2.flex-col.flex.lg\:w-4\/12 > .justify-center.items-center.flex
+minotruyenhh.xyz##.pt-10 > div > .justify-center.items-center.flex
+
+
 truyenqqno.com###_pop-qqgo-11
 ! Nov 13, 2025 https://truyenqqno.com
 truyenqqno.com###_pop-qqgo-11
