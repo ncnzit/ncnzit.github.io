@@ -1,36 +1,4 @@
-! uBlock Origin filters for minotruyenhh.xyz popup ads
-! Updated: 2025-12-10
-! 
-! ========== Popup/Popunder Scripts ==========
-! Block popclick protection script
-||*/ppck-ver$script,domain=minotruyenhh.xyz
 
-! Block common popup ad scripts
-minotruyenhh.xyz##^script:has-text(window.open)
-minotruyenhh.xyz##^script:has-text(popunder)
-minotruyenhh.xyz##^script:has-text(pop-ads)
-
-! ========== Embedded Gambling Ads ==========
-! Block TOT88 ads
-minotruyenhh.xyz##div:has-text(/TOT88/)
-minotruyenhh.xyz##div:has-text(/Nạp 100 nhận tới 400/)
-
-! Block SEA Games gambling ads
-minotruyenhh.xyz##div:has-text(/SEA Games/)
-minotruyenhh.xyz##div:has-text(/Nạp đầu/)
-
-! Block RC88 and similar gambling ads
-minotruyenhh.xyz##div:has-text(/RC88/)
-minotruyenhh.xyz##div:has-text(/HO88/)
-minotruyenhh.xyz##div[class*="ad"]
-minotruyenhh.xyz##div[class*="banner"]
-
-! ========== Aggressive Popup Blocking ==========
-! Block onclick popups on the entire page
-minotruyenhh.xyz##+js(addEventListener-defuser, click)
-minotruyenhh.xyz##+js(addEventListener-defuser, mousedown)
-minotruyenhh.xyz##+js(addEventListener-defuser, mouseup)
-minotruyenhh.xyz##+js(addEventListener-defuser, touchstart)
 
 ! Block window.open popups
 minotruyenhh.xyz##+js(window.open-defuser)
