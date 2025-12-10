@@ -1,16 +1,70 @@
-! uBlock Origin filters for minotruyenhh.xyz popup ads ! Updated: 2025-12-10 ! ! ========== Popup/Popunder Scripts ========== ! Block popclick protection script ||*/ppck-ver$script,domain=minotruyenhh.xyz
-! Block common popup ad scripts minotruyenhh.xyz##^script:has-text(window.open) minotruyenhh.xyz##^script:has-text(popunder) minotruyenhh.xyz##^script:has-text(pop-ads)
-! ========== Embedded Gambling Ads ========== ! Block TOT88 ads minotruyenhh.xyz##div:has-text(/TOT88/) minotruyenhh.xyz##div:has-text(/Nạp 100 nhận tới 400/)
-! Block SEA Games gambling ads minotruyenhh.xyz##div:has-text(/SEA Games/) minotruyenhh.xyz##div:has-text(/Nạp đầu/)
-! Block RC88 and similar gambling ads minotruyenhh.xyz##div:has-text(/RC88/) minotruyenhh.xyz##div:has-text(/HO88/) minotruyenhh.xyz##div[class*="ad"] minotruyenhh.xyz##div[class*="banner"]
-! ========== Aggressive Popup Blocking ========== ! Block onclick popups on the entire page minotruyenhh.xyz##+js(addEventListener-defuser, click) minotruyenhh.xyz##+js(addEventListener-defuser, mousedown) minotruyenhh.xyz##+js(addEventListener-defuser, mouseup) minotruyenhh.xyz##+js(addEventListener-defuser, touchstart)
-! Block window.open popups minotruyenhh.xyz##+js(window.open-defuser)
-! Block third-party iframes (common for popup ads) ||$third-party,frame,domain=minotruyenhh.xyz
-! ========== Known Ad Domains ========== ! Block common Vietnamese ad networks ||ads.adskeeper.co.uk^ ||jsc.adskeeper.com^ ||adserver..vn^ ||.ads.*.vn^ ||popads.net^ ||popcash.net^ ||propellerads.com^ ||adsterra.com^
-! ========== Cloudflare Beacon (Optional - Can slow down page) ========== ! ||static.cloudflareinsights.com/beacon.min.js$script,domain=minotruyenhh.xyz
-! ========== Additional Protection ========== ! Block popups on image clicks minotruyenhh.xyz img[onclick] minotruyenhh.xyz a > img:upward(1)
-! Prevent document/body click hijacking minotruyenhh.xyz##+js(nowoif) minotruyenhh.xyz##+js(popads-dummy)
-! ========== CSS-based blocking ========== ! Hide elements with ad-related styling minotruyenhh.xyz##div[style*="position: fixed"][style*="z-index: 999"] minotruyenhh.xyz##div[style*="position: absolute"][style*="z-index: 999"]
+! uBlock Origin filters for minotruyenhh.xyz popup ads
+! Updated: 2025-12-10
+! 
+! ========== Popup/Popunder Scripts ==========
+! Block popclick protection script
+||*/ppck-ver$script,domain=minotruyenhh.xyz
+
+! Block common popup ad scripts
+minotruyenhh.xyz##^script:has-text(window.open)
+minotruyenhh.xyz##^script:has-text(popunder)
+minotruyenhh.xyz##^script:has-text(pop-ads)
+
+! ========== Embedded Gambling Ads ==========
+! Block TOT88 ads
+minotruyenhh.xyz##div:has-text(/TOT88/)
+minotruyenhh.xyz##div:has-text(/Nạp 100 nhận tới 400/)
+
+! Block SEA Games gambling ads
+minotruyenhh.xyz##div:has-text(/SEA Games/)
+minotruyenhh.xyz##div:has-text(/Nạp đầu/)
+
+! Block RC88 and similar gambling ads
+minotruyenhh.xyz##div:has-text(/RC88/)
+minotruyenhh.xyz##div:has-text(/HO88/)
+minotruyenhh.xyz##div[class*="ad"]
+minotruyenhh.xyz##div[class*="banner"]
+
+! ========== Aggressive Popup Blocking ==========
+! Block onclick popups on the entire page
+minotruyenhh.xyz##+js(addEventListener-defuser, click)
+minotruyenhh.xyz##+js(addEventListener-defuser, mousedown)
+minotruyenhh.xyz##+js(addEventListener-defuser, mouseup)
+minotruyenhh.xyz##+js(addEventListener-defuser, touchstart)
+
+! Block window.open popups
+minotruyenhh.xyz##+js(window.open-defuser)
+
+! Block third-party iframes (common for popup ads)
+||$third-party,frame,domain=minotruyenhh.xyz
+
+! ========== Known Ad Domains ==========
+! Block common Vietnamese ad networks
+||ads.adskeeper.co.uk^
+||jsc.adskeeper.com^
+||adserver.*.vn^
+||*.ads.*.vn^
+||popads.net^
+||popcash.net^
+||propellerads.com^
+||adsterra.com^
+
+! ========== Cloudflare Beacon (Optional - Can slow down page) ==========
+! ||static.cloudflareinsights.com/beacon.min.js$script,domain=minotruyenhh.xyz
+
+! ========== Additional Protection ==========
+! Block popups on image clicks
+minotruyenhh.xyz img[onclick]
+minotruyenhh.xyz a > img:upward(1)
+
+! Prevent document/body click hijacking
+minotruyenhh.xyz##+js(nowoif)
+minotruyenhh.xyz##+js(popads-dummy)
+
+! ========== CSS-based blocking ==========
+! Hide elements with ad-related styling
+minotruyenhh.xyz##div[style*="position: fixed"][style*="z-index: 999"]
+minotruyenhh.xyz##div[style*="position: absolute"][style*="z-index: 999"]
 
 ! Dec 10, 2025 https://minotruyenhh.xyz
 minotruyenhh.xyz##.md\:rounded-md.slate-900.shadow-none.mx-auto.md\:max-w-screen-md.lg\:max-w-screen-lg.xl\:max-w-screen-8xl > .justify-center.items-center.flex
