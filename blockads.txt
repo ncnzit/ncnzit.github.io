@@ -1,7 +1,24 @@
+minotruyenv2.xyz##body:style(overflow: auto !important;)
+minotruyenv2.xyz##html:style(overflow: auto !important;)
 
+! ========== CSS-based blocking ==========
+! Hide elements with ad-related styling
+minotruyenv2.xyz##div[style*="position: fixed"][style*="z-index: 999"]
+minotruyenv2.xyz##div[style*="position: absolute"][style*="z-index: 999"]
+
+! Nov 13, 2025 https://truyenqqno.com
+truyenqqno.com###_pop-qqgo-11
+
+! Nov 13, 2025 https://minotruyenhh.xyz
+||minotruyenv2.xyz/ads/chapter/top/index.html$subdocument
+minotruyenv2.xyz##div.my-2.mx-auto.h-\[500px\].w-\[300px\]
+
+! Nov 13, 2025 https://truyenqqno.com
+truyenqqno.com###floating-banner-right
+truyenqqno.com###floating-banner-left
 
 ! Block window.open popups
-minotruyenhh.xyz##+js(window.open-defuser)
+minotruyenv2.xyz##+js(window.open-defuser)
 
 ! Block third-party iframes (common for popup ads)
 ||$third-party,frame,domain=minotruyenhh.xyz
